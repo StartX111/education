@@ -30,7 +30,7 @@ gulp.task('watch', ['browserSync', 'sass'], function(){
 gulp.task('default', ['watch'], function(){});
 
 gulp.task('clean', function(){
-   return del.sync('dist');
+   return del.sync('dist/**/*');
 });
 
 gulp.task('build', ['clean', 'sass'], function(){
