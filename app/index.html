@@ -1,66 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="css/custom-normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/sass-style.css">
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,500i" rel="stylesheet">-->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/custom-normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/sass-style.css">
 
-
-    <meta charset="UTF-8">
-    <title>Education</title>
+	<meta charset="UTF-8">
+	<title>Education</title>
 </head>
 <body>
 
-<header class="header">
-    <div class="container">
-        <nav class="header__navigation">
-            <div class="header__logo">
-                <img src="img/logo.png" class="logo">
-            </div>
-            <div class="header__nav" id="home_navigation" >
-                <ul class="nav__menu">
-                    <li><a href="#home" class="first active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#service">Service</a></li>
-                    <li><a href="#portfolio">portfolio</a></li>
-                    <li><a href="#contact">contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <progress class="readingProgressBar w3-red"></progress>
+<header class="header" id="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<img src="img/logo.png" alt="vivat" class="logo">
+			</div>
+			<div class="col-ld-6 ml-auto">
+				<nav>
+					<ul class="menu d-flex justify-content-center">
+						<li class="menu__item">
+							<a href="">Home</a>
+						</li>
+						<li class="menu__item">
+							<a href="">Section_one</a>
+						</li>
+						<li class="menu__item">
+							<a href="">Contacts</a>
+						</li>
+						<li class="menu__item">
+							<a href="">Footer</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </header>
 
-<section_one class="section_one">
-    <div class="container">
-        <div class="section_1">
 
-        </div>
-    </div>
-</section_one>
+<section class="section_one">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+			<h2>MORE ABOUT US</h2>
 
-<contact id="contact">
-    <div class="container">
+			</div>
+			<div class="col-lg-5"></div>
+		</div>
+	</div>
+</section>
 
-    </div>
-</contact>
 
-<footer class="footer">
-    <div class="container">
-        <div class="wrapper_foot">
-            <div class="footer_info">© 2018 StartX111.</div>
+<section class="section_two">
+	<div class="container">
+		<p>section two</p>
+	</div>
+</section>
 
-            <!--<div class="footer_link">-->
-                <!--<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>-->
-                <!--<a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>-->
-            <!--</div>-->
-        </div>
-    </div>
+
+<section class="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 d-block">
+				<div>
+					<ul class="contact__description">
+						<li class="contact__item">
+							<p>Viktor Vovk</p>
+						</li>
+						<li class="contact__item item__phone">
+							<p>+38(068)064-27-13</p>
+						</li>
+						<li class="contact__item">
+							<p>vivat.bbb@gmail.com</p>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<ul class="icons d-flex justify-content-center">
+						<li class="icons__item">
+							<a href="https://github.com/StartX111">
+								<i class="fab fa-github-square"></i>
+							</a>
+						</li>
+						<li class="icons__item">
+							<a href="https://www.linkedin.com/in/viktor-vovk-46972368/">
+								<i class="fab fa-linkedin"></i>
+							</a>
+						</li>
+						<li class="icons__item">
+							<a href="">
+								<i class="fab fa-facebook"></i>
+							</a>
+						</li>
+						<li class="icons__item">
+							<a href="">
+								<i class="fab fa-twitter-square"></i>
+							</a>
+						</li>
+						<li class="icons__item">
+							<a href="">
+								<i class="fab fa-google-plus-square"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 ml-auto">
+				<img src="img/myPhoto.jpg" alt="" class="myPhoto">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<footer class="footer" id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5">
+				<div class="footer__info">
+					<p>© 2018  by vovk</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>
-
-
 </body>
 </html>

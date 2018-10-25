@@ -14,7 +14,7 @@ gulp.task('browserSync', function(){
 
 gulp.task('sass', function(){
     del.sync('app/css/sass-style.css');
-    return gulp.src('app/sass/**/*.+(scss|sass)')
+    return gulp.src('app/sass/**/*.sass')
         .pipe(sass())
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({stream: true}));
