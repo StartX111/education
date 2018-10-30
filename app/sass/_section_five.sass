@@ -1,17 +1,31 @@
 .section_five
   background-color: #3A3D43
 
-.section_five
-  .section__menu
-    margin: 10px 0
-    border-right: 2px solid  #dc3545
-    p, h2
-      padding-top: 10px
-      color: #24282F
+.section_five .container:hover
+  background: rgba(255,0,0,0.1)
 
 .section_five
   .section__menu
+    margin: 10px 0
+    border-right: 2px solid rgba(200, 57, 69, 0.73)
+    p, h2
+      //margin: 10px 0
+      padding-top: 10px
+      color: #8E8E8E
+
+.section_five
+  .section__data
+    margin: 10px 0
     p
       color: #bfbfbf
       text-indent: 1.5em
       text-align: justify
+
+
+@media screen and (max-width: 992px)
+  .section_five
+    .section__menu
+      margin: 10px 20px
+      border-style: none
+      border-bottom: 2px solid  #dc3545
+

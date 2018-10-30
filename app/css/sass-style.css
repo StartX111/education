@@ -5,103 +5,195 @@
 .logo {
   height: 30px; }
 
+.wrapper_menu {
+  margin-top: 3px; }
+
 .menu__item {
-  margin: 0 10px; }
+  margin: 0 5px; }
+
+.menu__item :hover {
+  background: rgba(61, 0, 0, 0.9);
+  color: palevioletred; }
 
 .menu__item a {
+  text-decoration: none;
   font-weight: 300;
   font-size: 18px;
   color: #FFF; }
 
+@media screen and (max-width: 992px) {
+  .wrapper_logo {
+    text-align: center;
+    width: 100%; }
+  .wrapper_menu {
+    width: 100%; }
+  .menu {
+    flex-direction: column;
+    width: 100%; }
+    .menu .menu__item {
+      margin: 10px;
+      text-align: center; }
+      .menu .menu__item a {
+        width: 100%; } }
+
 .section_one {
   background-color: #3A3D43; }
 
+.section_one .container:hover {
+  background: rgba(255, 0, 0, 0.1); }
+
 .section_one .section__menu {
   margin: 10px 0;
-  border-right: 2px solid  #dc3545; }
+  border-right: 2px solid rgba(200, 57, 69, 0.73); }
   .section_one .section__menu p, .section_one .section__menu h2 {
     padding-top: 10px;
-    color: #24282F; }
+    color: #8E8E8E; }
 
-.section_one .section__menu p {
-  color: #bfbfbf;
-  text-indent: 1.5em;
-  text-align: justify; }
+.section_one .section__data {
+  margin: 10px 0; }
+  .section_one .section__data p {
+    color: #bfbfbf;
+    text-indent: 1.5em;
+    text-align: justify; }
+
+@media screen and (max-width: 992px) {
+  .section_one .section__menu {
+    margin: 10px 20px;
+    border-style: none;
+    border-bottom: 2px solid  #dc3545; } }
 
 .section_two {
   background-color: #585b62; }
 
+.section_two .container:hover {
+  background: rgba(255, 0, 0, 0.1); }
+
 .section_two .section__menu {
   margin: 10px 0;
-  border-right: 2px solid  #dc3545; }
+  border-right: 2px solid rgba(200, 57, 69, 0.73); }
   .section_two .section__menu p, .section_two .section__menu h2 {
+    margin: 10px 0;
     padding-top: 10px;
     color: #24282F; }
 
-.section_two .section__menu p {
-  color: #bfbfbf;
-  text-indent: 1.5em;
-  text-align: justify; }
+.section_two .section__data {
+  margin: 10px 0; }
+  .section_two .section__data p {
+    color: #000;
+    text-indent: 1.5em;
+    text-align: justify; }
+
+@media screen and (max-width: 992px) {
+  .section_two .section__menu {
+    margin: 10px 20px;
+    border-style: none;
+    border-bottom: 2px solid  #dc3545; } }
 
 .section_three {
   background-color: #3A3D43; }
 
+.section_three .container:hover {
+  background: rgba(255, 0, 0, 0.1); }
+
 .section_three .section__menu {
   margin: 10px 0;
-  border-right: 2px solid  #dc3545; }
+  border-right: 2px solid rgba(200, 57, 69, 0.73); }
   .section_three .section__menu p, .section_three .section__menu h2 {
     padding-top: 10px;
-    color: #24282F; }
+    color: #8E8E8E; }
 
-.section_three .section__menu p {
-  color: #bfbfbf;
-  text-indent: 1.5em;
-  text-align: justify; }
+.section_three .section__data {
+  margin: 10px 0; }
+  .section_three .section__data p {
+    color: #bfbfbf;
+    text-indent: 1.5em;
+    text-align: justify; }
+
+@media screen and (max-width: 992px) {
+  .section_three .section__menu {
+    margin: 10px 20px;
+    border-style: none;
+    border-bottom: 2px solid  #dc3545; } }
 
 .section_four {
   background-color: #585b62; }
 
+.section_four .container:hover {
+  background: rgba(255, 0, 0, 0.1); }
+
 .section_four .section__menu {
   margin: 10px 0;
-  border-right: 2px solid  #dc3545; }
+  border-right: 2px solid rgba(200, 57, 69, 0.73); }
   .section_four .section__menu p, .section_four .section__menu h2 {
+    margin: 10px 0;
     padding-top: 10px;
     color: #24282F; }
 
-.section_four .section__menu p {
-  color: #bfbfbf;
-  text-indent: 1.5em;
-  text-align: justify; }
+.section_four .section__data {
+  margin: 10px 0; }
+  .section_four .section__data p {
+    color: #000;
+    text-indent: 1.5em;
+    text-align: justify; }
+
+@media screen and (max-width: 992px) {
+  .section_four .section__menu {
+    margin: 10px 20px;
+    border-style: none;
+    border-bottom: 2px solid  #dc3545; } }
 
 .section_five {
   background-color: #3A3D43; }
 
+.section_five .container:hover {
+  background: rgba(255, 0, 0, 0.1); }
+
 .section_five .section__menu {
   margin: 10px 0;
-  border-right: 2px solid  #dc3545; }
+  border-right: 2px solid rgba(200, 57, 69, 0.73); }
   .section_five .section__menu p, .section_five .section__menu h2 {
     padding-top: 10px;
-    color: #24282F; }
+    color: #8E8E8E; }
 
-.section_five .section__menu p {
-  color: #bfbfbf;
-  text-indent: 1.5em;
-  text-align: justify; }
+.section_five .section__data {
+  margin: 10px 0; }
+  .section_five .section__data p {
+    color: #bfbfbf;
+    text-indent: 1.5em;
+    text-align: justify; }
+
+@media screen and (max-width: 992px) {
+  .section_five .section__menu {
+    margin: 10px 20px;
+    border-style: none;
+    border-bottom: 2px solid  #dc3545; } }
 
 .section_six {
   background-color: #585b62; }
 
+.section_six .container:hover {
+  background: rgba(255, 0, 0, 0.1); }
+
 .section_six .section__menu {
   margin: 10px 0;
-  border-right: 2px solid  #dc3545; }
+  border-right: 2px solid rgba(200, 57, 69, 0.73); }
   .section_six .section__menu p, .section_six .section__menu h2 {
+    margin: 10px 0;
     padding-top: 10px;
     color: #24282F; }
 
-.section_six .section__menu p {
-  color: #bfbfbf;
-  text-indent: 1.5em;
-  text-align: justify; }
+.section_six .section__data {
+  margin: 10px 0; }
+  .section_six .section__data p {
+    color: #000;
+    text-indent: 1.5em;
+    text-align: justify; }
+
+@media screen and (max-width: 992px) {
+  .section_six .section__menu {
+    margin: 10px 20px;
+    border-style: none;
+    border-bottom: 2px solid  #dc3545; } }
 
 .section_seven {
   background-color: #3A3D43; }
@@ -125,7 +217,7 @@
 
 .contact__description {
   padding-top: 20px;
-  padding-left: 120px;
+  text-align: center;
   line-height: 2em;
   height: 130px; }
 
@@ -136,19 +228,25 @@
   margin: 10px 0;
   width: 150px; }
 
-.icons {
-  margin-left: 20px; }
-
 .icons__item {
   font-size: 30px; }
   .icons__item a {
     color: #fff;
     padding: 0 15px; }
 
+@media screen and (max-width: 992px) {
+  .wrapper_photo {
+    text-align: center; } }
+
 .footer {
   background-color: #24282F;
   padding: 15px 0; }
 
+.footer__info {
+  width: 100%;
+  margin: auto; }
+
 .footer__info p {
-  font-size: 14px;
+  text-align: center;
+  font-size: 12px;
   color: #FFF; }

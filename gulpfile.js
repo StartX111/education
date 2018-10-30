@@ -39,6 +39,15 @@ gulp.task('build', ['clean', 'sass'], function(){
     ])
         .pipe(gulp.dest('dist/css'));
 
+    let buildlib = gulp.src('app/lib/**/*')
+        .pipe(gulp.dest('dist/lib'));
+
+    let buildImg = gulp.src('app/img/**/*')
+        .pipe(gulp.dest('dist/img'));
+
+    let buildfonts = gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'));
+
     let buildJs = gulp.src('app/js/**/*')
         .pipe(gulp.dest('dist/js'));
 
