@@ -42,6 +42,9 @@ gulp.task('build', ['clean', 'sass'], function(){
     let buildlib = gulp.src('app/lib/**/*')
         .pipe(gulp.dest('dist/lib'));
 
+    let buildProperties = gulp.src('app/properties/**/*')
+        .pipe(gulp.dest('dist/properties'));
+
     let buildImg = gulp.src('app/img/**/*')
         .pipe(gulp.dest('dist/img'));
 
