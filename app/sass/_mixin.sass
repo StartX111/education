@@ -1,0 +1,22 @@
+@mixin section_mix ($bg-clr, $tx-clr, $tx-moreColor, $separator-clr, $lnk-bg-clr)
+  background-color: $bg-clr
+  .container:hover
+    background: rgba(255,0,0,0.1)
+  .section__menu
+    margin: 10px 0
+    border-right: 2px solid $separator-clr
+    p, h2
+      text-align: center
+      padding-top: 10px
+      color: $tx-clr
+  .section__data
+    margin: 10px 0
+    p
+      color: $tx-moreColor
+      text-indent: 1.5em
+      text-align: justify
+    ul, li
+      color: $tx-moreColor
+    a
+      text-decoration: underline $lnk-bg-clr
+      color: $tx-moreColor
