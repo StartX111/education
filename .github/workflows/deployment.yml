@@ -41,7 +41,8 @@ jobs:
       - name: Upload code to server
         run: |
           # Архивируем текущую директорию (исключая .git)
-          tar czf app.tar.gz --exclude='.git' -C $GITHUB_WORKSPACE .
+          tar --warning=no-file-changed -czf app.tar.gz --exclude='.git' -C $GITHUB_WORKSPACE .
+
           # Загружаем архив на удалённый сервер
           scp -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -P ${{ secrets.ORANGE_PI_PORT }} app.tar.gz ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }}:/tmp/app.tar.gz
 
