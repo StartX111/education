@@ -1,0 +1,22 @@
+name: Test SSH Key
+
+on:
+  workflow_dispatch: # Позволяет запускать workflow вручную
+
+jobs:
+  test-ssh-connection:
+    runs-on: ubuntu-latest # Собственный сервер или виртуальная машина от GitHub
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH for deployment
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.ORANGE_PI_IP }} >> ~/.ssh/known_hosts
+
+      - name: Test SSH Connection
+        run: |
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }} 'echo "SSH connection successful!"'
