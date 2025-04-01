@@ -50,6 +50,8 @@ jobs:
       - name: Deploy in Docker on remote server
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p ${{ secrets.ORANGE_PI_PORT }} ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }} << 'EOF'
+          set -e
+
           # Удаляем старую директорию (если существует) и создаем новую
           rm -rf ~/app && mkdir -p ~/app
           
@@ -59,7 +61,7 @@ jobs:
           # Переходим в директорию приложения
           cd ~/app
 
-          # Останавливаем старый контейнер
+          # Останавливаем старый контейнер (если используется docker-compose.override.yml, учитывать его)
           docker-compose down || true
           
           # Собираем и запускаем новый контейнер
