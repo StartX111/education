@@ -54,14 +54,20 @@ jobs:
           echo "Contents of $GITHUB_WORKSPACE:"
           ls -al "$GITHUB_WORKSPACE"
 
+          # Выдаём файлам корректные права
+          chmod -R u+rw "$GITHUB_WORKSPACE"
+
+          # Создаём временную копию директории
+          cp -R "$GITHUB_WORKSPACE" /tmp/workdir
+
           # Архивируем текущую директорию (исключая .git, .github и ненужные файлы)
-          tar --warning=no-file-changed --warning=no-file-removed -czf app.tar.gz \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='*.log' \
-            --exclude='*.tmp' \
-            --exclude='node_modules' \
-            -C "$GITHUB_WORKSPACE" .
+          tar --warning=no-file-changed --warning=no-file-removed --ignore-failed-read -czf app.tar.gz \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=*.log \
+            --exclude=*.tmp \
+            --exclude=node_modules \
+            -C /tmp/workdir .
 
           # Проверяем, что файл архива создан
           if [ ! -f app.tar.gz ]; then
