@@ -1,0 +1,66 @@
+name: Deployment to Orange Pi server
+
+on:
+  # Запуск при пушах в ветку master
+  push:
+    branches:
+      - "master"
+
+  # Ручной запуск из вкладки Actions
+  workflow_dispatch:
+
+permissions:
+  contents: read # Чтение файлов репозитория
+  pages: write   # Публикация изменений на GitHub Pages
+  id-token: write # Выдача ID-токена для OpenID Connect (если нужно)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: "deployment" # Для всех развёртываний
+      cancel-in-progress: false # Ждем завершения текущей задачи
+
+    steps:
+      # 1. Скачиваем код из репозитория
+      - name: Check out the repository code
+        uses: actions/checkout@v3
+
+      # 2. Настройка SSH-соединения
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          # Сохранение приватного SSH-ключа
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          # Добавление хоста для "known_hosts"
+          ssh-keyscan -H ${{ secrets.ORANGE_PI_IP }} >> ~/.ssh/known_hosts
+
+      # 3. Архивация кода и отправка его на сервер
+      - name: Upload code to server
+        run: |
+          # Архивируем текущую директорию (исключая .git)
+          tar czf app.tar.gz --exclude='.git' -C $GITHUB_WORKSPACE .
+          # Загружаем архив на удалённый сервер
+          scp -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -P ${{ secrets.ORANGE_PI_PORT }} app.tar.gz ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }}:/tmp/app.tar.gz
+
+      # 4. Развёртывание на удалённом сервере с использованием Docker
+      - name: Deploy in Docker on remote server
+        run: |
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p ${{ secrets.ORANGE_PI_PORT }} ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }} << 'EOF'
+          # Удаляем старую директорию (если существует) и создаем новую
+          rm -rf ~/app && mkdir -p ~/app
+          
+          # Распаковываем архив
+          tar xzf /tmp/app.tar.gz -C ~/app
+          
+          # Переходим в директорию приложения
+          cd ~/app
+
+          # Останавливаем старый контейнер
+          docker-compose down || true
+          
+          # Собираем и запускаем новый контейнер
+          docker-compose up -d --build
+          EOF
