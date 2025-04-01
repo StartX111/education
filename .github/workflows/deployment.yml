@@ -98,6 +98,12 @@ jobs:
             # Переходим в директорию приложения
             cd ~/app
 
+            # Проверяем доступность docker-compose
+            if ! command -v docker-compose &> /dev/null; then
+              echo "'docker-compose' not found. Ensure it is installed." >&2
+              exit 1
+            fi
+
             # Останавливаем старый контейнер (если он существует)
             docker-compose down || true
 
