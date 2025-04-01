@@ -30,40 +30,54 @@ jobs:
       # 2. Настройка SSH-соединения
       - name: Set up SSH
         run: |
+          set -e  # Прекращаем выполнение при ошибках
           mkdir -p ~/.ssh
           # Сохранение приватного SSH-ключа
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          # Добавление хоста для "known_hosts"
+          # Добавление хоста для known_hosts
           ssh-keyscan -H ${{ secrets.ORANGE_PI_IP }} >> ~/.ssh/known_hosts
 
       # 3. Архивация кода и отправка его на сервер
       - name: Upload code to server
         run: |
-          # Архивируем текущую директорию (исключая .git)
-          tar --warning=no-file-changed -czf app.tar.gz --exclude='.git' -C $GITHUB_WORKSPACE .
+          set -e  # Прекращаем выполнение при ошибках
+          set -x  # Включаем режим отладки для отображения команд
+
+          # Архивируем текущую директорию (исключая .git и системные файлы)
+          tar --warning=no-file-changed -czf app.tar.gz --exclude='.git' --exclude='.github' -C $GITHUB_WORKSPACE .
+
+          # Проверяем, что файл архива создан
+          if [ ! -f app.tar.gz ]; then
+            echo "Error: Archive file was not created. Exiting."
+            exit 1
+          fi
 
           # Загружаем архив на удалённый сервер
-          scp -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -P ${{ secrets.ORANGE_PI_PORT }} app.tar.gz ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }}:/tmp/app.tar.gz
+          scp -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -P ${{ secrets.ORANGE_PI_PORT }} \
+            app.tar.gz ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }}:/tmp/app.tar.gz
 
       # 4. Развёртывание на удалённом сервере с использованием Docker
       - name: Deploy in Docker on remote server
         run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p ${{ secrets.ORANGE_PI_PORT }} ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }} << 'EOF'
-          set -e
+          set -e   # Прекращаем выполнение при ошибках
+          set -x   # Включаем режим отладки для отображения команд
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p ${{ secrets.ORANGE_PI_PORT }} \
+            ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }} << 'EOF'
+            set -e  # Прерываем выполнение при ошибках внутри SSH
 
-          # Удаляем старую директорию (если существует) и создаем новую
-          rm -rf ~/app && mkdir -p ~/app
-          
-          # Распаковываем архив
-          tar xzf /tmp/app.tar.gz -C ~/app
-          
-          # Переходим в директорию приложения
-          cd ~/app
+            # Удаляем старую директорию (если существует) и создаем новую
+            rm -rf ~/app && mkdir -p ~/app
 
-          # Останавливаем старый контейнер (если используется docker-compose.override.yml, учитывать его)
-          docker-compose down || true
-          
-          # Собираем и запускаем новый контейнер
-          docker-compose up -d --build
+            # Распаковываем архив
+            tar xzf /tmp/app.tar.gz -C ~/app
+
+            # Переходим в директорию приложения
+            cd ~/app
+
+            # Останавливаем старый контейнер (если он существует)
+            docker-compose down || true
+
+            # Собираем и запускаем новый контейнер
+            docker-compose up -d --build
           EOF
