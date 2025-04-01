@@ -39,13 +39,29 @@ jobs:
           ssh-keyscan -H ${{ secrets.ORANGE_PI_IP }} >> ~/.ssh/known_hosts
 
       # 3. Архивация кода и отправка его на сервер
-      - name: Upload code to server
+      - name: Archive and upload code to server
         run: |
           set -e  # Прекращаем выполнение при ошибках
           set -x  # Включаем режим отладки для отображения команд
 
-          # Архивируем текущую директорию (исключая .git и системные файлы)
-          tar --warning=no-file-changed -czf app.tar.gz --exclude='.git' --exclude='.github' -C $GITHUB_WORKSPACE .
+          # Проверяем, что рабочая директория существует
+          if [ ! -d "$GITHUB_WORKSPACE" ]; then
+            echo "Error: Working directory does not exist or is inaccessible: $GITHUB_WORKSPACE"
+            exit 1
+          fi
+
+          # Просмотр содержимого рабочей директории
+          echo "Contents of $GITHUB_WORKSPACE:"
+          ls -al "$GITHUB_WORKSPACE"
+
+          # Архивируем текущую директорию (исключая .git, .github и ненужные файлы)
+          tar --warning=no-file-changed --warning=no-file-removed -czf app.tar.gz \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='*.log' \
+            --exclude='*.tmp' \
+            --exclude='node_modules' \
+            -C "$GITHUB_WORKSPACE" .
 
           # Проверяем, что файл архива создан
           if [ ! -f app.tar.gz ]; then
@@ -55,7 +71,8 @@ jobs:
 
           # Загружаем архив на удалённый сервер
           scp -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -P ${{ secrets.ORANGE_PI_PORT }} \
-            app.tar.gz ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }}:/tmp/app.tar.gz
+            app.tar.gz \
+            ${{ secrets.ORANGE_PI_USER }}@${{ secrets.ORANGE_PI_IP }}:/tmp/app.tar.gz
 
       # 4. Развёртывание на удалённом сервере с использованием Docker
       - name: Deploy in Docker on remote server
