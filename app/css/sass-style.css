@@ -1,55 +1,223 @@
 .header {
   background-color: #24282F;
-  padding: 15px 0; }
+  padding: 15px 0;
+}
 
 .logo {
-  height: 30px; }
+  height: 30px;
+}
+
+.wrapper_menu {
+  margin-top: 3px;
+}
 
 .menu {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .menu__item {
-  margin: 0 10px; }
+  margin: 0 10px;
+}
+
+.menu__item:hover {
+  position: relative;
+  font-size: 1.5em;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 7px;
+  color: #aa8791;
+}
 
 .menu__item a {
+  text-decoration: none;
   font-weight: 300;
   font-size: 18px;
-  color: #FFF; }
+  color: #FFF;
+}
 
-.section_one {
-  background-color: #3A3D43; }
+@media screen and (max-width: 992px) {
+  .wrapper_logo {
+    text-align: center;
+    width: 100%;
+  }
+
+  .wrapper_menu {
+    width: 100%;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu .menu__item {
+    margin: 10px;
+    text-align: center;
+  }
+
+  .menu .menu__item a {
+    width: 100%;
+  }
+
+  .wrapper_photo {
+    text-align: center;
+  }
+}
+
+#header .container {
+  height: 30px;
+  width: 1000px;
+  margin: auto;
+  z-index: 0;
+}
+
+#header .container .row {
+  position: fixed;
+  z-index: 999;
+}
+
+.section_one, .section_three, .section_five, .section_seven {
+  background-color: #3A3D43;
+}
+
+.section_two, .section_four, .section_six {
+  background-color: #585b62;
+}
+
+.section_one .container:hover,
+.section_three .container:hover,
+.section_five .container:hover,
+.section_seven .container:hover,
+.section_two .container:hover,
+.section_four .container:hover,
+.section_six .container:hover {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.section_one .section__menu,
+.section_three .section__menu,
+.section_five .section__menu,
+.section_seven .section__menu,
+.section_two .section__menu,
+.section_four .section__menu,
+.section_six .section__menu {
+  margin: 10px 0;
+  border-right: 2px solid rgba(200, 57, 69, 0.73);
+}
+
+.section_one .section__menu p,
+.section_one .section__menu h2,
+.section_three .section__menu p,
+.section_three .section__menu h2,
+.section_five .section__menu p,
+.section_five .section__menu h2,
+.section_seven .section__menu p,
+.section_seven .section__menu h2 {
+  text-align: center;
+  padding-top: 10px;
+  color: #8E8E8E;
+}
+
+.section_two .section__menu p,
+.section_two .section__menu h2,
+.section_four .section__menu p,
+.section_four .section__menu h2,
+.section_six .section__menu p,
+.section_six .section__menu h2 {
+  text-align: center;
+  padding-top: 10px;
+  color: #24282F;
+}
+
+.section_one .section__data,
+.section_three .section__data,
+.section_five .section__data,
+.section_seven .section__data,
+.section_two .section__data,
+.section_four .section__data,
+.section_six .section__data {
+  margin: 10px 0;
+}
+
+.section_one .section__data p,
+.section_three .section__data p,
+.section_five .section__data p,
+.section_seven .section__data p {
+  color: #bfbfbf;
+  text-indent: 1.5em;
+  text-align: justify;
+}
+
+.section_two .section__data p,
+.section_four .section__data p,
+.section_six .section__data p {
+  color: #181b1f;
+  text-indent: 1.5em;
+  text-align: justify;
+}
+
+.section_one .section__data a,
+.section_three .section__data a,
+.section_five .section__data a,
+.section_seven .section__data a {
+  text-decoration: underline rgba(102, 108, 200, 0.73);
+  color: #bfbfbf;
+}
+
+.section_two .section__data a,
+.section_four .section__data a,
+.section_six .section__data a {
+  text-decoration: underline rgba(102, 108, 200, 0.73);
+  color: #181b1f;
+}
 
 .contact {
   background-color: #3A3D43;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .contact__description {
   padding-top: 20px;
-  padding-left: 100px;
+  text-align: center;
   line-height: 2em;
-  height: 130px; }
+  height: 130px;
+}
 
 .contact__item p {
-  color: #FFF; }
+  color: #FFF;
+}
 
 .myPhoto {
   margin: 10px 0;
-  width: 150px; }
+  width: 150px;
+}
 
 .icons {
-  padding-left: 50px; }
+  padding-left: 50px;
+}
 
 .icons__item {
-  font-size: 30px; }
-  .icons__item a {
-    color: #fff;
-    padding: 0 15px; }
+  font-size: 30px;
+}
+
+.icons__item a {
+  color: #FFF;
+  padding: 0 15px;
+}
 
 .footer {
   background-color: #24282F;
-  padding: 15px 0; }
+  padding: 15px 0;
+}
+
+.footer__info {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
 
 .footer__info p {
   font-size: 14px;
-  color: #FFF; }
+  color: #FFF;
+}

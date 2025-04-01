@@ -1,7 +1,31 @@
+@import "variable"
+@import "mixin"
+
 @import "header"
-@import "section_one"
-@import "section_two"
+
+.section_one
+  @include section_mix($color_Gray, $text_light_color, $text_light_color*$half, $separator-br-color, $color_Gray)
+
+.section_two
+  @include section_mix($color_newGray, $text_dark_color, $text_dark_color/$half, $separator-br-color, $link-br-color)
+
+.section_three
+  @include section_mix($color_Gray, $text_light_color, $text_moreLight_color, $separator-br-color, $link-br-color)
+
+.section_four
+  @include section_mix($color_newGray, $text_dark_color, $text_dark_color/$half, $separator-br-color, $link-br-color)
+
+.section_five
+  @include section_mix($color_Gray, $text_light_color, $text_moreLight_color, $separator-br-color, $link-br-color)
+
+.section_six
+  @include section_mix($color_newGray, $text_dark_color, $text_dark_color/$half, $separator-br-color, $link-br-color)
+
+.section_seven
+  @include section_mix($color_Gray, $text_light_color, $text_moreLight_color, $separator-br-color, $link-br-color)
+
 @import "contact"
+
 @import "footer"
 
 

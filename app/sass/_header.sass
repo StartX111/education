@@ -5,13 +5,49 @@
 .logo
   height: 30px
 
-.menu
-  margin-top: 10px
+.wrapper_menu
+  margin-top: 3px
 
 .menu__item
-  margin: 0 10px
+  margin: 0 5px
+
+.menu__item :hover
+  position: relative
+  font-size: 1.5em
+  padding: 10px
+  background: rgba(0, 0, 0, 0.9)
+  border-radius: 7px
+  color: #aa8791
 
 .menu__item a
+  text-decoration: none
   font-weight: 300
   font-size: 18px
   color: #FFF
+
+@media screen and (max-width: 992px)
+  .wrapper_logo
+    text-align: center
+    width: 100%
+  .wrapper_menu
+    width: 100%
+
+  .menu
+    flex-direction: column
+    width: 100%
+    .menu__item
+      margin: 10px
+      text-align: center
+      a
+        width: 100%
+
+#header .container
+  height: 30px
+  width: 1000px
+  margin: auto
+  z-index: 0
+
+#header .container .row
+  position:  fixed
+  z-index: 999
+

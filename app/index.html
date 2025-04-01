@@ -1,68 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,500i" rel="stylesheet">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/custom-normalize.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/sass-style.css">
 
 	<meta charset="UTF-8">
 	<title>Education</title>
+
+
 </head>
 <body>
 
 <header class="header" id="header">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-2 wrapper_logo animated fadeInLeftBig">
 				<img src="img/logo.png" alt="vivat" class="logo">
 			</div>
-			<div class="col-ld-6 ml-auto">
-				<nav>
+			<div class="col-ld-10 ml-auto wrapper_menu animated fadeInRightBig">
+				<div class="header_menu">
 					<ul class="menu d-flex justify-content-center">
-						<li class="menu__item">
-							<a href="">Home</a>
-						</li>
-						<li class="menu__item">
-							<a href="">Section_one</a>
-						</li>
-						<li class="menu__item">
-							<a href="">Contacts</a>
-						</li>
-						<li class="menu__item">
-							<a href="">Footer</a>
-						</li>
+						<li class="menu__item">	<a href="#PetProjects">PetProjects</a></li>
+						<li class="menu__item">	<a href="#JavaScript">JavaScript</a></li>
+						<li class="menu__item">	<a href="#Java">Java</a></li>
+						<li class="menu__item">	<a href="#ORpiServer">OrangePi/server</a></li>
+						<li class="menu__item">	<a href="#Other">Other</a></li>
+						<li class="menu__item">	<a href="#CurriculumVitae">Curriculum Vitae</a></li>
+						<li class="menu__item">	<a href="#contact">Contact</a></li>
 					</ul>
-				</nav>
+				</div>
 			</div>
 		</div>
 	</div>
 </header>
 
 
-<section class="section_one">
+<!--todo: block - Pet Projects-->
+<section class="section_one" id="PetProjects">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6">
-			<h2>MORE ABOUT US</h2>
+			<div class="col-lg-4 section__menu animated fadeInLeft">
+				<h2>Pet Projects</h2>
 
 			</div>
-			<div class="col-lg-5"></div>
+			<div class="col-lg-8 section__data animated fadeInRight">
+				<ul class="ul-treefree ul-dropfree">GitHub
+					<li><a href="https://startx111.github.io/firstSite">firstSite</a></li>
+					<li><a href="https://startx111.github.io/Caclculator_JS/">Caclculator_JS</a></li>
+					<li>test DZ
+						<ul>
+							<li><a href="https://startx111.github.io/TestCS/Test1">Test 1</a></li>
+							<li><a href="https://startx111.github.io/TestCS/Test2">Test 2</a></li>
+							<li><a href="https://startx111.github.io/TestCS/Test3">Test 2</a></li>
+						</ul>
+					</li>
+					<li><a href="https://startx111.github.io/TaskForA">TaskForA</a></li>
+					<li><a href=""></a></li>
+					<li><a href="http://www.mypetprojects.tk">http://www.mypetprojects.tk</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
 
-
-<section class="section_two">
+<!--todo: block - JS-->
+<section class="section_two" id="JavaScript">
 	<div class="container">
-		<p>section two</p>
+		<div class="row">
+			<div class="col-lg-4 section__menu animated fadeInLeft">
+				<h2>JavaScript</h2>
+
+			</div>
+			<div class="col-lg-8 section__data animated fadeInRight">
+				<p>Современный JavaScript – это «безопасный» язык программирования общего назначения. Он не предоставляет
+					низкоуровневых средств работы с памятью, процессором, так как изначально был ориентирован на браузеры, в
+					которых это не требуется.</p>
+				<p>Что же касается остальных возможностей – они зависят от окружения, в котором запущен JavaScript. В браузере
+					JavaScript умеет делать всё, что относится к манипуляции со страницей, взаимодействию с посетителем и, в
+					какой-то мере, с сервером</p>
+			</div>
+		</div>
 	</div>
 </section>
 
+<!--todo: block - Java-->
+<section class="section_three" id="Java">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 section__menu animated fadeInLeft">
+				<h2>Java</h2>
+			</div>
+			<div class="col-lg-8 section__data animated fadeInRight">
+				<p>Java — сильно типизированный объектно-ориентированный язык программирования, разработанный компанией Sun
+					Microsystems. Приложения Java обычно транслируются в специальный байт-код, поэтому они могут работать на любой
+					компьютерной архитектуре, с помощью виртуальной Java-машины</p>
+			</div>
+		</div>
+	</div>
+</section>
 
-<section class="contact">
+<!--todo: block - ORPi + server-->
+<section class="section_four" id="ORpiServer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 section__menu animated fadeInLeft">
+				<h2>OrangePi/server</h2>
+				<ul class="ul-treefree ul-dropfree">
+					<li>настрйока
+						<ul>
+							<li>переразметка</li>
+							<li>исплея</li>
+						</ul>
+					</li>
+					<li>настройка vsftpd
+						<ul>
+							<li>ds
+								<ul>
+									<li>
+										ds1.1
+									</li>
+									<li><a href="#PetProjects">ds1.2 </a></li>
+								</ul>
+							</li>
+							<li>yfcnh</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col-lg-8 section__data animated fadeInRight">
+				<p>Все началось с подарка жены на день рожденье. Orange Pi со своими весьма скромными размерами и Alwinner H6
+					процессором оказался на удивление производительным. Как и любой девайс из поднебесной не лишен недостатков.
+				Зато способствует развитию навыков работы с Linux</p>
+				<p>Замечательная вещь для тех кто хочет больше чем тыкать мышкой в фортачку. Или уметь не только
+					верстать сайтики, но и учиться решать ошибки deploy-я</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--todo: block - Other-->
+<section class="section_five" id="Other">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 section__menu animated fadeInLeft">
+				<h2>My Other</h2>
+			</div>
+			<div class="col-lg-8 section__data animated fadeInRight">
+				<p>Тут скоро должны появиться embedded проекты</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--todo: block - Curriculum Vitae-->
+<section class="section_six" id="CurriculumVitae">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 section__menu">
+				<h2>Curriculum Vitae</h2>
+			</div>
+			<div class="col-lg-8 section__data">
+				<p>кратко о себе в <a href="properties/CurriculumVitae.pdf">pdf</a></p>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="contact" id="contact">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5 d-block">
@@ -109,7 +223,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-3 ml-auto">
+			<div class="col-lg-3 ml-auto wrapper_photo">
 				<img src="img/myPhoto.jpg" alt="" class="myPhoto">
 			</div>
 		</div>
@@ -119,14 +233,14 @@
 
 <footer class="footer" id="footer">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-5">
-				<div class="footer__info">
-					<p>© 2018  by vovk</p>
-				</div>
-			</div>
+		<div class="footer__info">
+			<p>© 2018 by vovk</p>
 		</div>
 	</div>
 </footer>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script src="js/common.js"></script>
+
 </body>
 </html>
