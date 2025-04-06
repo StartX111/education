@@ -1,16 +1,30 @@
 version: '3.8'
 
-services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: node_app
-    ports:
-      - '80:80'
-    volumes:
-      - .:/app
-      - /app/node_modules
-    stdin_open: true
-    tty: true
-    restart: unless-stopped
+   services:
+     traefik:
+       image: traefik:v2.11
+       container_name: traefik
+       ports:
+         - "80:80"   # HTTP
+         - "443:443" # HTTPS
+       volumes:
+         - /var/run/docker.sock:/var/run/docker.sock:ro
+         - ./traefik/traefik.yml:/traefik.yml:ro
+         - ./traefik/acme.json:/acme.json  # Для хранения сертификатов
+       restart: unless-stopped
+
+     app:
+       build:
+         context: .
+         dockerfile: Dockerfile
+       container_name: node_app
+       labels:
+         - "traefik.enable=true"
+         - "traefik.http.routers.node_app.rule=Host(`yourdomain.com`)"  # Замените вашим доменом
+         - "traefik.http.routers.node_app.entrypoints=websecure"
+         - "traefik.http.routers.node_app.tls.certresolver=myresolver"
+       environment:
+         NODE_ENV: production
+       ports:
+         - "80:80"
+       restart: unless-stopped
