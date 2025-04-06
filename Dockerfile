@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Открываем порт, используемый BrowserSync (по умолчанию 3000)
-EXPOSE 3000
+EXPOSE 80
 
 # Команда, которая запускается внутри контейнера
 CMD ["npm", "run", "gulp"]
